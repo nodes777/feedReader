@@ -109,7 +109,7 @@ $(function() {
     allFeeds.forEach(function(feed) {
         feed.id = feedId;
         feedList.append(feedItemTemplate(feed));
-
+        console.log(feedId);
         feedId++;
     });
 
