@@ -9,7 +9,7 @@ $(function() {
         });
 
          it('should have a url', function() {
-            for (i= 0; i<allFeeds.length; i++){
+            for (var i= 0; i<allFeeds.length; i++){
             expect(allFeeds[i].url).toBeDefined();
             expect(allFeeds[i].url.length).not.toBe(0);
             }
