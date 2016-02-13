@@ -55,16 +55,23 @@ $(function() {
     });
 
     describe('New Feed Selection', function() {
-
-        beforeEach(function(done) {
-            loadFeed(0, done);
+        var feed0,
+            feed1;
+        /*load a feed, store the info*/
+         beforeEach(function(done) {
+            loadFeed(1, function() {
+                feed0 = $('.feed').children().text();
+                done();
+            });
         });
-        it('changes content on page', function() {
-            var feedChildren = $('.feed').children();
-            console.log(feedChildren);
-            loadFeed(1);
-            var feedChildrenChanged = $('.feed').children();
-            expect(feedChildren).not.toBe(feedChildrenChanged);
+         /*load another feed, store the info and compare to the first, they should be dif*/
+        it('content changes', function(done) {
+            loadFeed(0, function() {
+                feed1 = $('.feed').children().text();
+                expect(feed1).not.toEqual(feed0);
+                done();
+            });
+
         });
     });
 }());
